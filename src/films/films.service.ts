@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Film } from './film.entity';
+import {
+  paginate,
+  Pagination,
+  IPaginationOptions
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class FilmsService {
@@ -17,5 +22,9 @@ export class FilmsService {
 
   public async remove(id: string): Promise<void> {
     return await this.filmRespository.delete(id);
+  }
+
+  async paginate(options: IPaginationOptions): Promise<Pagination<FilmsService>> {
+    return paginate<FilmsService>(this.filmRespository, options);
   }
 }
