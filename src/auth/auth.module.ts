@@ -7,9 +7,6 @@ import AuthConfig from '../config/auth.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      load: [AuthConfig]
-    }),
     UsersModule
   ],
   providers: [AuthService],
