@@ -6,6 +6,7 @@ import {
   Pagination,
   IPaginationOptions
 } from 'nestjs-typeorm-paginate';
+import { CreateFilmDto } from './create-film.dto';
 
 @Injectable()
 export class FilmsService {
@@ -16,12 +17,12 @@ export class FilmsService {
     return this.filmRespository.find();
   }
 
-  public findOne(id: string): Promise<Film> {
-    return this.filmRespository.findOne(id);
+  public async remove(id: number): Promise<void> {
+    return await this.filmRespository.delete(id);
   }
 
-  public async remove(id: string): Promise<void> {
-    return await this.filmRespository.delete(id);
+  public async create(film: CreateFilmDto) {
+    return await this.filmRespository.save(film);
   }
 
   public findBy(arrFilters): Promise<Film[]> {

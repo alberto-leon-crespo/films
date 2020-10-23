@@ -1,8 +1,10 @@
-import { Controller, Get, Query, Req } from '@nestjs/common';
+import { Controller, Get, Post, Query, Req, Res, Body, Delete, Param, HttpException, HttpStatus } from '@nestjs/common';
 import { FilmsService } from './films.service';
-import { query, Request } from 'express';
+import { Request, Response } from 'express';
+import { FilmsValidationPipe } from './films-validation.pipe';
+import { CreateFilmDto } from './create-film.dto';
 
-@Controller('films')
+@Controller()
 export class FilmsController {
 
   constructor(private filmsService: FilmsService) {}
@@ -11,7 +13,7 @@ export class FilmsController {
     return /^-?\d+$/.test(value);
   }
 
-  @Get()
+  @Get('/films')
   public getFilms(
     @Req() request: Request,
     @Query('_page') page: number,
@@ -36,5 +38,27 @@ export class FilmsController {
         route: 'http://localhost/films',
       });
     }
+  }
+
+  @Delete('/films/:id')
+  public async deleteFilm(
+    @Param('id') id: number,
+    @Res() response: Response
+  ) {
+    const deleteResponse = await this.filmsService.remove(id as number);
+    if (deleteResponse['affected'] !== 1) {
+      throw new HttpException(
+        `Error deleting user ${id}`,
+        HttpStatus.BAD_REQUEST
+      );
+    }
+    response.status(HttpStatus.NO_CONTENT).end();
+  }
+
+  @Post('/films')
+  public async postFilms(
+    @Body(new FilmsValidationPipe()) createFilmDto: CreateFilmDto
+  ) {
+    return await this.filmsService.create(createFilmDto);
   }
 }
