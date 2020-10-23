@@ -3,7 +3,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
-import { PeliculasModule } from './peliculas/peliculas.module';
+import { FilmsModule } from './films/films.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
@@ -16,7 +16,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     AuthModule,
     UsersModule,
-    PeliculasModule
+    FilmsModule
   ],
   providers: [AppService],
 })
