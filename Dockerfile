@@ -4,9 +4,12 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
+RUN npm i -g @nestjs/cli
+
 RUN npm install --only=development
 
-RUN pwd
+RUN npm -v
+RUN node -v
 
 COPY . .
 
@@ -26,5 +29,9 @@ RUN npm install --only=production
 COPY . .
 
 COPY --from=development /usr/src/app/dist ./dist
+
+ENV WAIT_VERSION 2.7.2
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
+RUN chmod +x /wait
 
 CMD ["npm", "run", "start:prod"]
