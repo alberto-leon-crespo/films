@@ -26,7 +26,7 @@ export class UsersService {
   }
 
   public async create(user: CreateUserDto) {
-    const salt = this.configService.get('auth.encryptation_key');
+    const salt = this.configService.get('app.encryptation_key');
     const saltedPassword = this.saltPasswordUtils.hashPassword(
       user.password,
       salt
@@ -37,8 +37,8 @@ export class UsersService {
     return userData;
   }
 
-  public async login(username, password) {
-    const salt = this.configService.get('auth.encryptation_key');
+  public async login(username, password): Promise<User> {
+    const salt = this.configService.get('app.encryptation_key');
     const saltedPassword = this.saltPasswordUtils.hashPassword(password, salt);
     const userInfo = await this
       .usersRepository

@@ -4,12 +4,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { UsersController } from './users.controller';
 import { ConfigModule } from '@nestjs/config';
-import AuthConfig from '../config/auth.config';
+import AppConfig from '../config/app.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [AuthConfig]
+      load: [AppConfig]
     }),
     TypeOrmModule.forFeature([User])
   ],
