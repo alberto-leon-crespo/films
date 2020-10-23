@@ -1,10 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum FilmGender {
-  Terror = 0,
-  Drama = 1,
-  Comedia = 2,
-  Acción = 3
+  Terror = 'Terror',
+  Drama = 'Drama',
+  Comedia = 'Comedia',
+  Acción = 'Acción'
 }
 
 @Entity()

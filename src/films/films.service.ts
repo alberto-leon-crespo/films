@@ -24,6 +24,10 @@ export class FilmsService {
     return await this.filmRespository.delete(id);
   }
 
+  public findBy(arrFilters): Promise<Film[]> {
+    return this.filmRespository.find(arrFilters);
+  }
+
   async paginate(options: IPaginationOptions): Promise<Pagination<FilmsService>> {
     return paginate<FilmsService>(this.filmRespository, options);
   }
