@@ -7,6 +7,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -21,7 +28,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.16.1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/peliculas" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -39,6 +46,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alber\Projects\peliculas\src\peliculas" />
       <recent name="C:\Users\alber\Projects\peliculas" />
     </key>
   </component>
@@ -54,7 +62,7 @@
       <updated>1603385846389</updated>
       <workItem from="1603385849884" duration="2875000" />
       <workItem from="1603390307458" duration="16169000" />
-      <workItem from="1603410562989" duration="11369000" />
+      <workItem from="1603410562989" duration="17620000" />
     </task>
     <servers />
   </component>
@@ -66,10 +74,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#ESLint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603463714589" />
-    <state x="717" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603412434415">
+    <state x="717" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603467197001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="717" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603412434415" />
+    <state x="717" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603467197001" />
     <state x="640" y="248" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603410501306">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -102,5 +110,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="677" y="328" key="jetbrains.nodejs.interpreters-dialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603410464945" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1603466414741">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603466414741" />
   </component>
 </project>

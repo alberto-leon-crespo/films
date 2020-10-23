@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
-  constructor() {}
+  constructor(private usersService: UsersService) {}
+
+  public checkLoginCredentials(username: string, password: string) {
+  }
 }
