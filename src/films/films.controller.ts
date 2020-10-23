@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Query, Req, Res, Body, Delete, Param, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Query, Req, Res, Body, Delete, Param, HttpException, HttpStatus, UseInterceptors } from '@nestjs/common';
 import { FilmsService } from './films.service';
 import { Request, Response } from 'express';
 import { FilmsValidationPipe } from './films-validation.pipe';
 import { CreateFilmDto } from './create-film.dto';
+import { RequireAuthorized } from '../decorators/require-auth.decorator';
 
 @Controller()
 export class FilmsController {
@@ -40,6 +41,7 @@ export class FilmsController {
     }
   }
 
+  @RequireAuthorized()
   @Delete('/films/:id')
   public async deleteFilm(
     @Param('id') id: number,
@@ -55,6 +57,7 @@ export class FilmsController {
     response.status(HttpStatus.NO_CONTENT).end();
   }
 
+  @RequireAuthorized()
   @Post('/films')
   public async postFilms(
     @Body(new FilmsValidationPipe()) createFilmDto: CreateFilmDto
