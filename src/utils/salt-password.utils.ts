@@ -1,12 +1,12 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
-import crypto from "crypto";
+import * as crypto from "crypto";
 
 export class SaltPasswordUtils {
 
-  public generateSalt(rounds: number = null): string {
+  public generateSalt(rounds: number = 15): string {
     if (rounds >= 15) {
       throw new HttpException(
-        `${rounds} is greater than 15, Must be less that 15`,
+        `${rounds} is equal or greater than 15, Must be less or equal that 15`,
         HttpStatus.BAD_REQUEST
       );
     }
@@ -16,9 +16,6 @@ export class SaltPasswordUtils {
         HttpStatus.BAD_REQUEST
       );
     }
-    if (!rounds) {
-      rounds = 12;
-    }
     return crypto
       .randomBytes(Math.ceil(rounds / 2))
       .toString('hex')
@@ -26,9 +23,9 @@ export class SaltPasswordUtils {
   };
 
   public hashPassword(password: string, salt: string) {
-    let hash = crypto.createHmac('sha512', salt);
+    const hash = crypto.createHmac('sha512', salt);
     hash.update(password);
-    let value = hash.digest('hex');
+    const value = hash.digest('hex');
     return {
       salt: salt,
       hashedPassword: value

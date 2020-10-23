@@ -8,7 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule,
     TypeOrmModule.forRoot({
       retryAttempts: 6,
       retryDelay: 10000,

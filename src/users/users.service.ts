@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpCode, HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './users.entity';
 
@@ -21,7 +21,19 @@ export class UsersService {
     return await this.usersRepository.delete(id);
   }
 
-  public async login(username, password): Promise<boolean> {
-    return false;
+  public async login(username, password) {
+    const userInfo = await this
+      .usersRepository
+      .createQueryBuilder("user")
+      .where("user.username = :username", { username: username })
+      .andWhere("user.password = :password", { password: password })
+      .getOne();
+    if (!userInfo) {
+      throw new HttpException(
+        'User or password incorrect',
+        HttpStatus.BAD_REQUEST
+      );
+    }
+    return userInfo;
   }
 }
