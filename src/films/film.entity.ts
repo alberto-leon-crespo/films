@@ -12,15 +12,15 @@ export class Film {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: String})
+  @Column("varchar")
   title: string;
 
-  @Column({ type: String})
+  @Column("text")
   description: string;
 
   @Column("enum", { enum: FilmGender })
   gender: string;
 
-  @Column({type: String})
+  @Column("text")
   poster: string;
 }
